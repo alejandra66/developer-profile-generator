@@ -40,3 +40,32 @@ function init() {
             accept: 'application/json'
           }
         };
+        // Get GitHub API data by the axios get method
+      let queryUrl = `https://api.github.com/users/${username}`;
+
+      return axios.get(queryUrl, config).then(userData => {
+        let newUrl = `https://api.github.com/users/${username}/starred`;
+
+        axios.get(newUrl, config).then(starredRepos => {
+          data = {
+            img: userData.data.avatar_url,
+            location: userData.data.location,
+            gitProfile: userData.data.html_url,
+            userBlog: userData.data.blog,
+            userBio: userData.data.bio,
+            repoNum: userData.data.public_repos,
+            followers: userData.data.followers,
+            following: userData.data.following,
+            starNum: starredRepos.data.length,
+            username: username,
+            color: color
+          };
+          console.log(data);
+          // Function call
+          generateHTML(data);
+          creatHTML(generateHTML(data));
+          generatePDF(username);
+        });
+      });
+    });
+}
