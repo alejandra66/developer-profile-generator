@@ -69,3 +69,9 @@ function init() {
       });
     });
 }
+// Create index.html file using generateHTML.js
+const creatHTML = function(generateHTML) {
+    writeFileAsync('index.html', generateHTML);
+  };
+  
+  init();
