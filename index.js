@@ -75,3 +75,30 @@ const creatHTML = function(generateHTML) {
   };
   
   init();
+// generatePDF Funcion puppeteer accoding to puppeteer guide line
+async function generatePDF(username) {
+    try {
+      const browser = await puppeteer.launch();
+      const page = await browser.newPage();
+  
+      // setup index.html file location
+      await page.goto(
+        'file:///Users/esjung/BootcampBK/homeworks/Developer-Profile-Generator/index.html'
+      );
+      await page.emulateMediaType('screen');
+  
+      // setup puppeteer pdf generation options
+      await page.pdf({
+        path: `${username}.pdf`,
+        format: 'Letter',
+        printBackground: true,
+        landscape: true
+      });
+      console.log('Generated PDF sucessfully !');
+  
+      await browser.close();
+    } catch (err) {
+      console.log('Oops! PDF generate error !!!');
+    }
+  }
+  
