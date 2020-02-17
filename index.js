@@ -5,6 +5,7 @@ const util = require('util');
 const puppeteer = require('puppeteer');
 const generateHTML = require('./generateHTML');
 const writeFileAsync = util.promisify(fs.writeFile);
+const index = require('./index.js')
 
 let img = '';
 let location = '';
@@ -83,7 +84,7 @@ async function generatePDF(username) {
   
       // setup index.html file location
       await page.goto(
-        'file:///Users/esjung/BootcampBK/homeworks/Developer-Profile-Generator/index.html'
+        'file:///Users/alejandra/Desktop/developer-profile-generator/index.html'
       );
       await page.emulateMediaType('screen');
   
