@@ -33,3 +33,10 @@ function init() {
         name: 'color'
       }
     ])
+    .then(function({ username, color }) {
+        // setup axios config to get data from github api
+        const config = {
+          headers: {
+            accept: 'application/json'
+          }
+        };
