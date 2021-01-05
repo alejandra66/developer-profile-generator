@@ -17,7 +17,7 @@
   "homepage": "https://github.com/alejandra66/developer-profile-generator#readme",
   "description": "",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "require-stack": "^1.0.2"
   }
 }
